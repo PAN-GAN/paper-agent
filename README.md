@@ -96,6 +96,8 @@ EMAIL_USE_TLS
 ```text
 DEEPSEEK_BASE_URL
 DEEPSEEK_MODEL
+DEEPSEEK_THINKING
+DEEPSEEK_REASONING_EFFORT
 OPENALEX_MAILTO
 TELEGRAM_BOT_TOKEN
 TELEGRAM_CHAT_ID
@@ -119,8 +121,9 @@ EMAIL_USE_TLS=true
 1. 登录 DeepSeek 开放平台或控制台。
 2. 创建 API Key。
 3. 在 GitHub Secrets 中添加 `DEEPSEEK_API_KEY`。
-4. 默认模型为 `deepseek-chat`。如果控制台显示的可用模型名不同，请添加或修改 `DEEPSEEK_MODEL`。
-5. 默认 `DEEPSEEK_BASE_URL` 是 `https://api.deepseek.com`。
+4. 默认模型为 `deepseek-v4-flash`。如果控制台显示的可用模型名不同，请添加或修改 `DEEPSEEK_MODEL`。
+5. 默认开启思考模式：`DEEPSEEK_THINKING=enabled`，默认思考强度为 `DEEPSEEK_REASONING_EFFORT=high`。
+6. 默认 `DEEPSEEK_BASE_URL` 是 `https://api.deepseek.com`。
 
 代码使用 OpenAI-compatible Chat Completions 格式，请求路径为：
 
@@ -129,6 +132,15 @@ https://api.deepseek.com/chat/completions
 ```
 
 如果 DeepSeek 调用失败，系统会生成一份备用摘要，不会让整个任务崩溃。
+
+推荐 DeepSeek Secrets：
+
+```text
+DEEPSEEK_BASE_URL=https://api.deepseek.com
+DEEPSEEK_MODEL=deepseek-v4-flash
+DEEPSEEK_THINKING=enabled
+DEEPSEEK_REASONING_EFFORT=high
+```
 
 ## 修改研究领域关键词
 

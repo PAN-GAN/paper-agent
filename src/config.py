@@ -63,7 +63,9 @@ ARXIV_BASE_URL = "https://export.arxiv.org/api/query"
 
 DEEPSEEK_API_KEY = _env("DEEPSEEK_API_KEY")
 DEEPSEEK_BASE_URL = _env("DEEPSEEK_BASE_URL", "https://api.deepseek.com")
-DEEPSEEK_MODEL = _env("DEEPSEEK_MODEL", "deepseek-chat")
+DEEPSEEK_MODEL = _env("DEEPSEEK_MODEL", "deepseek-v4-flash")
+DEEPSEEK_THINKING = _env("DEEPSEEK_THINKING", "enabled").lower()
+DEEPSEEK_REASONING_EFFORT = _env("DEEPSEEK_REASONING_EFFORT", "high").lower()
 DEEPSEEK_TIMEOUT_SECONDS = _env_int("DEEPSEEK_TIMEOUT_SECONDS", 45)
 
 EMAIL_HOST = _env("EMAIL_HOST")

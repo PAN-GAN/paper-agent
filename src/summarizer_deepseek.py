@@ -10,6 +10,8 @@ from config import (
     DEEPSEEK_API_KEY,
     DEEPSEEK_BASE_URL,
     DEEPSEEK_MODEL,
+    DEEPSEEK_REASONING_EFFORT,
+    DEEPSEEK_THINKING,
     DEEPSEEK_TIMEOUT_SECONDS,
     KEYWORDS,
 )
@@ -131,8 +133,14 @@ def summarize_paper(paper: dict[str, Any]) -> str:
             },
             {"role": "user", "content": prompt},
         ],
-        "temperature": 0.3,
     }
+    if DEEPSEEK_THINKING == "enabled":
+        payload["thinking"] = {"type": "enabled"}
+        if DEEPSEEK_REASONING_EFFORT in {"high", "max"}:
+            payload["reasoning_effort"] = DEEPSEEK_REASONING_EFFORT
+    else:
+        payload["thinking"] = {"type": "disabled"}
+        payload["temperature"] = 0.3
 
     try:
         response = requests.post(
