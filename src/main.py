@@ -37,7 +37,7 @@ def main() -> int:
     print(f"[Main] Selected paper: {paper.get('title')} (score={paper.get('score')})")
     summary = summarize_paper(paper)
 
-    sent = send_email(str(paper.get("title") or "今日优秀论文推荐"), summary)
+    sent = send_email(str(paper.get("title") or "今日优秀论文推荐"), summary, paper)
     if sent:
         mark_as_sent(paper)
         print("[Main] Paper marked as sent.")

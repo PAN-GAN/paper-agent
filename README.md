@@ -142,23 +142,13 @@ DEEPSEEK_THINKING=enabled
 DEEPSEEK_REASONING_EFFORT=high
 ```
 
-## 修改研究领域关键词
+## 控制推送领域
 
-打开 `src/config.py`，修改：
+长期推送更适合稳定在几个固定领域。打开 `src/config.py`，修改 `KEYWORDS` 即可。
 
-```python
-KEYWORDS = [
-    "artificial intelligence",
-    "deep learning",
-    "machine learning",
-    "data science",
-    "large language model",
-    "graph neural network",
-    "remote sensing",
-]
-```
+建议关键词保持 3 到 8 个。关键词越宽，候选越多，但质量波动也会更明显。
 
-建议关键词不要太多，先保持 5 到 10 个高质量方向词。关键词越宽，候选越多，但质量波动也会更明显。
+邮件会展示开放可获取的质量指标，包括论文引用数、OpenAlex 2 年平均被引、来源 h-index 和 i10-index。OpenAlex 2 年平均被引是开放的类 IF 指标，并非 JCR 官方 Impact Factor。
 
 ## 手动运行 GitHub Actions
 

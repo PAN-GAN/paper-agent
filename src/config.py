@@ -58,6 +58,7 @@ ENABLE_ARXIV = _env_bool("ENABLE_ARXIV", True)
 
 OPENALEX_MAILTO = _env("OPENALEX_MAILTO")
 OPENALEX_BASE_URL = "https://api.openalex.org/works"
+OPENALEX_SOURCES_BASE_URL = "https://api.openalex.org/sources"
 
 ARXIV_BASE_URL = "https://export.arxiv.org/api/query"
 

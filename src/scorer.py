@@ -44,6 +44,7 @@ class PaperScore:
     freshness_score: float
     keyword_score: float
     venue_score: float
+    source_metric_score: float
     open_access_score: float
 
 
@@ -80,15 +81,28 @@ def score_paper(paper: dict[str, Any], keywords: list[str] | None = None) -> Pap
     if any(name in venue for name in HIGH_QUALITY_VENUES):
         venue_score = max(venue_score, 16)
 
+    metrics = paper.get("source_metrics") or {}
+    two_year_mean = float(metrics.get("two_year_mean_citedness") or 0)
+    h_index = int(metrics.get("h_index") or 0)
+    source_metric_score = min(two_year_mean * 2, 8) + min(math.log1p(h_index) * 1.5, 8)
+
     open_access_score = 6 if paper.get("is_open_access") else 0
 
-    total = citation_score + freshness_score + keyword_score + venue_score + open_access_score
+    total = (
+        citation_score
+        + freshness_score
+        + keyword_score
+        + venue_score
+        + source_metric_score
+        + open_access_score
+    )
     return PaperScore(
         total=round(total, 2),
         citation_score=round(citation_score, 2),
         freshness_score=round(freshness_score, 2),
         keyword_score=round(keyword_score, 2),
         venue_score=round(venue_score, 2),
+        source_metric_score=round(source_metric_score, 2),
         open_access_score=round(open_access_score, 2),
     )
 
