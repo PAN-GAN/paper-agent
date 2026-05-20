@@ -43,7 +43,7 @@ KEYWORDS = [
     "machine learning",
     "data science",
     "large language model",
-    "graph neural network",
+    "computer vision",
     "remote sensing",
 ]
 
