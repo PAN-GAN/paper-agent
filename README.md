@@ -99,8 +99,6 @@ DEEPSEEK_MODEL
 DEEPSEEK_THINKING
 DEEPSEEK_REASONING_EFFORT
 OPENALEX_MAILTO
-TELEGRAM_BOT_TOKEN
-TELEGRAM_CHAT_ID
 ```
 
 常见 SMTP 示例：
@@ -115,6 +113,22 @@ EMAIL_USE_TLS=true
 ```
 
 很多邮箱不允许直接使用登录密码，需要在邮箱安全设置里创建“授权码”或“应用专用密码”。
+
+## 邮件是谁发出的
+
+邮件发件人就是你在 GitHub Secrets 里配置的 `EMAIL_USER`。
+
+例如你这样配置：
+
+```text
+EMAIL_USER=your@qq.com
+EMAIL_PASSWORD=QQ邮箱授权码
+EMAIL_TO=receiver@example.com
+```
+
+那么系统会登录 `your@qq.com` 的 SMTP 服务，并从这个 QQ 邮箱把论文推荐发送到 `receiver@example.com`。
+
+如果 `EMAIL_TO` 也填同一个 QQ 邮箱，就相当于“自己发给自己”。这很常见，也最简单。
 
 ## DeepSeek API Key
 
@@ -176,24 +190,6 @@ GitHub Actions 的 cron 使用 UTC 时间，不是北京时间。
 ```yaml
 - cron: "30 1 * * *"
 ```
-
-## Telegram Bot
-
-当前项目默认主推送渠道是 Email，`src/notifier_telegram.py` 已保留轻量实现，后续可以在 `main.py` 中接入。
-
-创建 Telegram Bot：
-
-1. 在 Telegram 搜索 `@BotFather`。
-2. 发送 `/newbot`。
-3. 按提示创建 bot，获得 `TELEGRAM_BOT_TOKEN`。
-4. 给你的 bot 发送一条消息。
-5. 访问下面地址获取 chat id：
-
-```text
-https://api.telegram.org/bot<TELEGRAM_BOT_TOKEN>/getUpdates
-```
-
-返回 JSON 中的 `message.chat.id` 就是 `TELEGRAM_CHAT_ID`。
 
 ## 常见问题
 
