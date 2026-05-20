@@ -7,8 +7,12 @@
 ## 功能
 
 - 从 OpenAlex 按关键词检索论文元数据，优先用于质量筛选。
+- 从 Semantic Scholar 补充 AI/CS 论文、引用数、影响力引用和开放 PDF。
 - 从 arXiv 按关键词检索最新预印本，作为补充候选。
-- 使用引用数、发表年份、关键词匹配、来源质量、开放获取状态做基础评分。
+- 从 OpenReview 补充 ICLR 等 AI 顶会/评审平台论文。
+- 使用 Crossref 补全 DOI、出版商、期刊、参考文献和被引元数据。
+- 使用 Unpaywall 查找合法开放获取版本和 OA PDF。
+- 使用引用数、发表年份、关键词匹配、来源质量、开放获取状态、影响力引用和开放指标做基础评分。
 - 使用 DeepSeek OpenAI-compatible Chat Completions 生成中文论文解读。
 - 使用 SMTP Email 发送纯文本推送。
 - 使用 `data/sent_papers.json` 记录已推送论文，避免重复推荐。
@@ -99,6 +103,8 @@ DEEPSEEK_MODEL
 DEEPSEEK_THINKING
 DEEPSEEK_REASONING_EFFORT
 OPENALEX_MAILTO
+SEMANTIC_SCHOLAR_API_KEY
+UNPAYWALL_EMAIL
 ```
 
 常见 SMTP 示例：
@@ -163,6 +169,21 @@ DEEPSEEK_REASONING_EFFORT=high
 建议关键词保持 3 到 8 个。关键词越宽，候选越多，但质量波动也会更明显。
 
 邮件会展示开放可获取的质量指标，包括论文引用数、OpenAlex 2 年平均被引、来源 h-index 和 i10-index。OpenAlex 2 年平均被引是开放的类 IF 指标，并非 JCR 官方 Impact Factor。
+
+## 免费数据源说明
+
+当前版本使用这些免费数据源：
+
+```text
+OpenAlex + Semantic Scholar + arXiv + Unpaywall + Crossref + OpenReview
+```
+
+其中：
+
+- `SEMANTIC_SCHOLAR_API_KEY` 可选，但建议申请免费 key，稳定性更好。
+- `UNPAYWALL_EMAIL` 用于 Unpaywall 查询合法开放获取版本；如果不配置，会复用 `OPENALEX_MAILTO`。
+- Crossref、arXiv、OpenReview 不需要付费 key。
+- 这些源只使用公开 API 和开放元数据，不绕过登录验证，不下载受版权保护的全文。
 
 ## 手动运行 GitHub Actions
 

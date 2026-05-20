@@ -45,6 +45,8 @@ class PaperScore:
     keyword_score: float
     venue_score: float
     source_metric_score: float
+    semantic_score: float
+    availability_score: float
     open_access_score: float
 
 
@@ -86,6 +88,18 @@ def score_paper(paper: dict[str, Any], keywords: list[str] | None = None) -> Pap
     h_index = int(metrics.get("h_index") or 0)
     source_metric_score = min(two_year_mean * 2, 8) + min(math.log1p(h_index) * 1.5, 8)
 
+    influential = int(paper.get("influential_citation_count") or 0)
+    semantic_score = min(math.log1p(influential) * 4, 12)
+
+    source_types = set(paper.get("source_types") or [paper.get("source_type")])
+    availability_score = 0
+    if len(source_types) >= 2:
+        availability_score += 4
+    if paper.get("oa_pdf_url") or paper.get("pdf_url"):
+        availability_score += 5
+    if paper.get("unpaywall", {}).get("best_oa_pdf_url"):
+        availability_score += 3
+
     open_access_score = 6 if paper.get("is_open_access") else 0
 
     total = (
@@ -94,6 +108,8 @@ def score_paper(paper: dict[str, Any], keywords: list[str] | None = None) -> Pap
         + keyword_score
         + venue_score
         + source_metric_score
+        + semantic_score
+        + availability_score
         + open_access_score
     )
     return PaperScore(
@@ -103,6 +119,8 @@ def score_paper(paper: dict[str, Any], keywords: list[str] | None = None) -> Pap
         keyword_score=round(keyword_score, 2),
         venue_score=round(venue_score, 2),
         source_metric_score=round(source_metric_score, 2),
+        semantic_score=round(semantic_score, 2),
+        availability_score=round(availability_score, 2),
         open_access_score=round(open_access_score, 2),
     )
 
@@ -129,21 +147,15 @@ def rank_papers(
 
 
 def choose_best_paper(
-    openalex_papers: list[dict[str, Any]],
-    arxiv_papers: list[dict[str, Any]],
+    papers: list[dict[str, Any]],
     sent_ids: set[str],
     min_score: float = MIN_SCORE,
 ) -> dict[str, Any] | None:
-    """Prefer a qualified OpenAlex result, then fall back to arXiv."""
+    """Choose the highest-scoring unsent paper from a merged candidate pool."""
 
-    openalex_ranked = rank_papers(openalex_papers, sent_ids)
-    if openalex_ranked and openalex_ranked[0]["score"] >= min_score:
-        return openalex_ranked[0]
-
-    arxiv_ranked = rank_papers(arxiv_papers, sent_ids)
-    if arxiv_ranked:
-        return arxiv_ranked[0]
-
-    if openalex_ranked:
-        return openalex_ranked[0]
-    return None
+    ranked = rank_papers(papers, sent_ids)
+    if not ranked:
+        return None
+    if ranked[0]["score"] >= min_score:
+        return ranked[0]
+    return ranked[0]

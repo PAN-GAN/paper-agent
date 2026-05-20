@@ -62,6 +62,22 @@ OPENALEX_SOURCES_BASE_URL = "https://api.openalex.org/sources"
 
 ARXIV_BASE_URL = "https://export.arxiv.org/api/query"
 
+SEMANTIC_SCHOLAR_BASE_URL = "https://api.semanticscholar.org/graph/v1"
+SEMANTIC_SCHOLAR_API_KEY = _env("SEMANTIC_SCHOLAR_API_KEY")
+
+CROSSREF_BASE_URL = "https://api.crossref.org/works"
+
+UNPAYWALL_BASE_URL = "https://api.unpaywall.org/v2"
+UNPAYWALL_EMAIL = _env("UNPAYWALL_EMAIL") or OPENALEX_MAILTO
+
+OPENREVIEW_BASE_URL = "https://api2.openreview.net"
+
+ENABLE_SEMANTIC_SCHOLAR = _env_bool("ENABLE_SEMANTIC_SCHOLAR", True)
+ENABLE_CROSSREF = _env_bool("ENABLE_CROSSREF", True)
+ENABLE_UNPAYWALL = _env_bool("ENABLE_UNPAYWALL", True)
+ENABLE_OPENREVIEW = _env_bool("ENABLE_OPENREVIEW", True)
+ENRICH_TOP_N = _env_int("ENRICH_TOP_N", 30)
+
 DEEPSEEK_API_KEY = _env("DEEPSEEK_API_KEY")
 DEEPSEEK_BASE_URL = _env("DEEPSEEK_BASE_URL", "https://api.deepseek.com")
 DEEPSEEK_MODEL = _env("DEEPSEEK_MODEL", "deepseek-v4-flash")

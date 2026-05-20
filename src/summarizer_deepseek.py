@@ -35,12 +35,17 @@ def _authors_text(paper: dict[str, Any], limit: int = 8) -> str:
 
 def _source_metrics_text(paper: dict[str, Any]) -> str:
     metrics = paper.get("source_metrics") or {}
+    semantic = paper.get("semantic_scholar") or {}
+    unpaywall = paper.get("unpaywall") or {}
     values = [
+        f"候选来源：{', '.join(paper.get('source_types') or [paper.get('source_type', 'unknown')])}",
         f"论文引用数：{paper.get('cited_by_count', 0)}",
+        f"影响力引用：{paper.get('influential_citation_count') or semantic.get('influential_citation_count') or 0}",
         f"OpenAlex 2年平均被引：{metrics.get('two_year_mean_citedness', '未知')}",
         f"来源 h-index：{metrics.get('h_index', '未知')}",
         f"来源 i10-index：{metrics.get('i10_index', '未知')}",
         f"来源总被引：{metrics.get('source_cited_by_count', '未知')}",
+        f"合法开放PDF：{paper.get('oa_pdf_url') or paper.get('pdf_url') or unpaywall.get('best_oa_pdf_url') or '未知'}",
     ]
     return "；".join(values)
 
@@ -128,7 +133,7 @@ def summarize_paper(paper: dict[str, Any]) -> str:
 
 推荐指数：
 开放指标：
-说明论文引用数、OpenAlex 2年平均被引、来源 h-index / i10-index 等指标。注意：OpenAlex 2年平均被引是开放的类 IF 指标，不要称为官方 JCR Impact Factor。
+说明候选来源、论文引用数、Semantic Scholar 影响力引用、OpenAlex 2年平均被引、来源 h-index / i10-index、合法开放 PDF。注意：OpenAlex 2年平均被引是开放的类 IF 指标，不要称为官方 JCR Impact Factor。
 适合方向：
 一句话结论：
 

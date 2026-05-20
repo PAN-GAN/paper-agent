@@ -39,6 +39,8 @@ jobs:
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           EMAIL_USE_TLS: ${{ secrets.EMAIL_USE_TLS }}
           OPENALEX_MAILTO: ${{ secrets.OPENALEX_MAILTO }}
+          SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
+          UNPAYWALL_EMAIL: ${{ secrets.UNPAYWALL_EMAIL }}
         run: python src/main.py
 
       - name: Commit sent paper records

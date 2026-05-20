@@ -129,9 +129,23 @@ def build_email_html(title: str, body: str, paper: dict[str, Any] | None = None)
     safe_source_type = html.escape(str(source_type))
     safe_open_access = html.escape(open_access)
     safe_citations = html.escape(str(paper.get("cited_by_count") or 0))
+    safe_influential = html.escape(str(paper.get("influential_citation_count") or 0))
     safe_two_year = html.escape(_metric_value(metrics.get("two_year_mean_citedness")))
     safe_h_index = html.escape(_metric_value(metrics.get("h_index"), 0))
     safe_i10_index = html.escape(_metric_value(metrics.get("i10_index"), 0))
+    source_types = ", ".join(paper.get("source_types") or [paper.get("source_type", "unknown")])
+    safe_sources = html.escape(source_types)
+    oa_pdf = (
+        paper.get("oa_pdf_url")
+        or paper.get("pdf_url")
+        or paper.get("unpaywall", {}).get("best_oa_pdf_url")
+        or ""
+    )
+    oa_pdf_html = (
+        f'<a href="{html.escape(str(oa_pdf))}">{html.escape(str(oa_pdf))}</a>'
+        if oa_pdf
+        else "无"
+    )
 
     return f"""<!doctype html>
 <html lang="zh-CN">
@@ -279,11 +293,14 @@ def build_email_html(title: str, body: str, paper: dict[str, Any] | None = None)
         <div class="meta-item"><span class="label">年份 / 来源</span><span class="value">{safe_year} · {safe_venue}</span></div>
         <div class="meta-item"><span class="label">推荐分数</span><span class="value">{safe_score}</span></div>
         <div class="meta-item"><span class="label">论文引用数</span><span class="value">{safe_citations}</span></div>
+        <div class="meta-item"><span class="label">影响力引用</span><span class="value">{safe_influential}</span></div>
         <div class="meta-item"><span class="label">2年平均被引</span><span class="value">{safe_two_year}</span></div>
         <div class="meta-item"><span class="label">来源 h-index</span><span class="value">{safe_h_index}</span></div>
         <div class="meta-item"><span class="label">来源 i10-index</span><span class="value">{safe_i10_index}</span></div>
         <div class="meta-item"><span class="label">数据源 / 开放获取</span><span class="value">{safe_source_type} · {safe_open_access}</span></div>
+        <div class="meta-item wide"><span class="label">候选来源</span><span class="value">{safe_sources}</span></div>
         <div class="meta-item wide"><span class="label">链接</span><span class="value">{link_html}</span></div>
+        <div class="meta-item wide"><span class="label">开放 PDF</span><span class="value">{oa_pdf_html}</span></div>
         <div class="wide note">注：2年平均被引来自 OpenAlex，是开放的类 IF 指标，并非 JCR 官方 Impact Factor。</div>
       </section>
       <section class="content">
