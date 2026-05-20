@@ -1,4 +1,4 @@
-# 个人科研情报系统 Paper Agent
+# 个人情报系统 Paper Agent
 
 这是一个适合个人长期迭代的 Python 自动化项目：每天在 GitHub Actions 上定时检索论文，筛选一篇高质量候选，调用 DeepSeek API 生成中文解读，并通过 Email 推送给你。
 
