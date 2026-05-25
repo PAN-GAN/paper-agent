@@ -52,5 +52,11 @@
     "title": "Physics-informed machine learning",
     "url": "https://doi.org/10.1038/s42254-021-00314-5",
     "sent_at": "2026-05-24T01:57:53.278133+00:00"
+  },
+  {
+    "paper_id": "https://openalex.org/W3182706339",
+    "title": "The coefficient of determination R-squared is more informative than SMAPE, MAE, MAPE, MSE and RMSE in regression analysis evaluation",
+    "url": "https://doi.org/10.7717/peerj-cs.623",
+    "sent_at": "2026-05-25T02:03:54.532357+00:00"
   }
 ]
