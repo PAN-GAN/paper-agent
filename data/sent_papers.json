@@ -70,5 +70,11 @@
     "title": "ColabFold: making protein folding accessible to all",
     "url": "https://doi.org/10.1038/s41592-022-01488-1",
     "sent_at": "2026-05-27T02:02:56.874502+00:00"
+  },
+  {
+    "paper_id": "https://openalex.org/W4221151978",
+    "title": "Instant neural graphics primitives with a multiresolution hash encoding",
+    "url": "https://doi.org/10.1145/3528223.3530127",
+    "sent_at": "2026-05-28T01:47:53.661522+00:00"
   }
 ]
