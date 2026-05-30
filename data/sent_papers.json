@@ -82,5 +82,11 @@
     "title": "A Survey on Bias and Fairness in Machine Learning",
     "url": "https://www.semanticscholar.org/paper/0090023afc66cd2741568599057f4e82b566137c",
     "sent_at": "2026-05-29T01:57:06.568551+00:00"
+  },
+  {
+    "paper_id": "https://openalex.org/W3185341429",
+    "title": "Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing",
+    "url": "https://doi.org/10.1145/3560815",
+    "sent_at": "2026-05-30T01:51:37.310073+00:00"
   }
 ]
