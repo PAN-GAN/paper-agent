@@ -112,5 +112,11 @@
     "title": "Accurate prediction of protein structures and interactions using a three-track neural network",
     "url": "https://doi.org/10.1126/science.abj8754",
     "sent_at": "2026-06-03T02:30:23.556578+00:00"
+  },
+  {
+    "paper_id": "https://openalex.org/W3043971245",
+    "title": "ORB-SLAM3: An Accurate Open-Source Library for Visual, Visual–Inertial, and Multimap SLAM",
+    "url": "https://doi.org/10.1109/tro.2021.3075644",
+    "sent_at": "2026-06-04T02:29:36.340371+00:00"
   }
 ]
