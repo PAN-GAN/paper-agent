@@ -118,5 +118,11 @@
     "title": "ORB-SLAM3: An Accurate Open-Source Library for Visual, Visual–Inertial, and Multimap SLAM",
     "url": "https://doi.org/10.1109/tro.2021.3075644",
     "sent_at": "2026-06-04T02:29:36.340371+00:00"
+  },
+  {
+    "paper_id": "541bcf94bd09f17c25d8ed7cd10e69c8f91331d0",
+    "title": "ChangeMamba: Remote Sensing Change Detection With Spatiotemporal State Space Model",
+    "url": "https://www.semanticscholar.org/paper/541bcf94bd09f17c25d8ed7cd10e69c8f91331d0",
+    "sent_at": "2026-06-05T02:02:55.544254+00:00"
   }
 ]
