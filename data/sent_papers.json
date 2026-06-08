@@ -136,5 +136,11 @@
     "title": "ERA5-Land: a state-of-the-art global reanalysis dataset for land applications",
     "url": "https://doi.org/10.5194/essd-13-4349-2021",
     "sent_at": "2026-06-07T02:08:38.388902+00:00"
+  },
+  {
+    "paper_id": "bc00ff34ec7772080c7039b17f7069a2f7df0889",
+    "title": "Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead",
+    "url": "https://www.semanticscholar.org/paper/bc00ff34ec7772080c7039b17f7069a2f7df0889",
+    "sent_at": "2026-06-08T02:15:16.524726+00:00"
   }
 ]
