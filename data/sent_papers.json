@@ -166,5 +166,11 @@
     "title": "A survey on large language model based autonomous agents",
     "url": "https://www.semanticscholar.org/paper/28c6ac721f54544162865f41c5692e70d61bccab",
     "sent_at": "2026-06-12T02:08:47.525679+00:00"
+  },
+  {
+    "paper_id": "https://openalex.org/W3138516171",
+    "title": "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows",
+    "url": "https://doi.org/10.1109/iccv48922.2021.00986",
+    "sent_at": "2026-06-13T02:02:40.810950+00:00"
   }
 ]
