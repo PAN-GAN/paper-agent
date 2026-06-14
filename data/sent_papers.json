@@ -172,5 +172,11 @@
     "title": "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows",
     "url": "https://doi.org/10.1109/iccv48922.2021.00986",
     "sent_at": "2026-06-13T02:02:40.810950+00:00"
+  },
+  {
+    "paper_id": "https://openalex.org/W3131500599",
+    "title": "Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions",
+    "url": "https://doi.org/10.1109/iccv48922.2021.00061",
+    "sent_at": "2026-06-14T02:12:33.931933+00:00"
   }
 ]
