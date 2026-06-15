@@ -178,5 +178,11 @@
     "title": "Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions",
     "url": "https://doi.org/10.1109/iccv48922.2021.00061",
     "sent_at": "2026-06-14T02:12:33.931933+00:00"
+  },
+  {
+    "paper_id": "https://openalex.org/W4323655724",
+    "title": "ChatGPT for good? On opportunities and challenges of large language models for education",
+    "url": "https://doi.org/10.1016/j.lindif.2023.102274",
+    "sent_at": "2026-06-15T02:16:20.602104+00:00"
   }
 ]
