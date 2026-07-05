@@ -298,5 +298,11 @@
     "title": "Cancer statistics, 2023",
     "url": "https://doi.org/10.3322/caac.21763",
     "sent_at": "2026-07-04T01:29:16.236368+00:00"
+  },
+  {
+    "paper_id": "f28e387d4229c5f690ce4570a391c0f47e7155c7",
+    "title": "nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation",
+    "url": "https://www.semanticscholar.org/paper/f28e387d4229c5f690ce4570a391c0f47e7155c7",
+    "sent_at": "2026-07-05T01:44:48.872626+00:00"
   }
 ]
