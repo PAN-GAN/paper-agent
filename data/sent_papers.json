@@ -316,5 +316,11 @@
     "title": "Dementia prevention, intervention, and care: 2024 report of the Lancet standing Commission",
     "url": "https://doi.org/10.1016/s0140-6736(24)01296-0",
     "sent_at": "2026-07-07T01:48:03.469641+00:00"
+  },
+  {
+    "paper_id": "https://openalex.org/W3201073812",
+    "title": "LAMMPS - a flexible simulation tool for particle-based materials modeling at the atomic, meso, and continuum scales",
+    "url": "https://doi.org/10.1016/j.cpc.2021.108171",
+    "sent_at": "2026-07-08T01:20:56.876923+00:00"
   }
 ]
