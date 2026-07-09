@@ -322,5 +322,11 @@
     "title": "LAMMPS - a flexible simulation tool for particle-based materials modeling at the atomic, meso, and continuum scales",
     "url": "https://doi.org/10.1016/j.cpc.2021.108171",
     "sent_at": "2026-07-08T01:20:56.876923+00:00"
+  },
+  {
+    "paper_id": "https://openalex.org/W4384561707",
+    "title": "Large language models in medicine",
+    "url": "https://doi.org/10.1038/s41591-023-02448-8",
+    "sent_at": "2026-07-09T01:28:25.750231+00:00"
   }
 ]
