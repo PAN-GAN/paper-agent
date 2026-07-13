@@ -346,5 +346,11 @@
     "title": "Deep Learning for Computer Vision: A Brief Review",
     "url": "https://www.semanticscholar.org/paper/ca011427853d34ce4ec9ccafde8a70c9eacc3e21",
     "sent_at": "2026-07-12T01:21:45.438505+00:00"
+  },
+  {
+    "paper_id": "6001895c2fcf69528d01306e9d293d9d2a4cc67b",
+    "title": "DeepLabCut: markerless pose estimation of user-defined body parts with deep learning",
+    "url": "https://www.semanticscholar.org/paper/6001895c2fcf69528d01306e9d293d9d2a4cc67b",
+    "sent_at": "2026-07-13T01:22:21.080918+00:00"
   }
 ]
